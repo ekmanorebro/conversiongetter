@@ -12,3 +12,9 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+Rails.application.config.assets.precompile += %w( fixed-header.js )
+Rails.application.config.assets.precompile += %w( form.js )
+Rails.application.config.assets.precompile += %w( smooth-scroll.js )
+Rails.application.config.assets.precompile += %w( light-smooth-scroll.js )
+Rails.application.config.assets.precompile += %w( smooth-scroll-services.js )
+Rails.application.config.assets.precompile += %w( collapsediv.js )

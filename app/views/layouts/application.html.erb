@@ -4,12 +4,32 @@
     <title>ConversionGetter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
   </head>
 
   <body>
+    <p><%= session[:email_id] %>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
+
+  <% case params[:action] %>
+    <% when 'index', 'special' %>
+      <%= javascript_include_tag 'fixed-header', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'form', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'smooth-scroll', 'data-turbolinks-track': 'reload' %>
+    <% when 'smm', 'seo', 'ppc' %>
+      <%= javascript_include_tag 'form', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'smooth-scroll-services', 'data-turbolinks-track': 'reload' %>
+    <% when 'privacy', 'terms', 'dream' %>
+      <%= javascript_include_tag 'form', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'light-smooth-scroll', 'data-turbolinks-track': 'reload' %>
+    <% when 'mmc' %>
+      <%= javascript_include_tag 'collapsediv', 'data-turbolinks-track': 'reload' %>
+  <% end %>
 </html>

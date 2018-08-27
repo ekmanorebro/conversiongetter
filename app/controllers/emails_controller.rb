@@ -12,6 +12,8 @@ class EmailsController < ApplicationController
     if @email.save
       session[:email_id] = @email.id
       redirect_to(mmc_path)
+    else
+      render(mm_path)
     end
   end
 

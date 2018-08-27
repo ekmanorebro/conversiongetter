@@ -12,23 +12,26 @@
   </head>
 
   <body>
-    <p><%= session[:email_id] %>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:success] %>
+      <div class="success"><%= flash[:success] %></div>
+    <% end %>
     <%= yield %>
   </body>
 
   <% case params[:action] %>
     <% when 'index', 'special' %>
       <%= javascript_include_tag 'fixed-header', 'data-turbolinks-track': 'reload' %>
-      <%= javascript_include_tag 'form', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'smooth-scroll', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'dynamic-form', 'data-turbolinks-track': 'reload' %>
     <% when 'smm', 'seo', 'ppc' %>
-      <%= javascript_include_tag 'form', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'smooth-scroll-services', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'dynamic-form', 'data-turbolinks-track': 'reload' %>
     <% when 'privacy', 'terms', 'dream' %>
-      <%= javascript_include_tag 'form', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'light-smooth-scroll', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'dynamic-form', 'data-turbolinks-track': 'reload' %>
     <% when 'mmc' %>
       <%= javascript_include_tag 'collapsediv', 'data-turbolinks-track': 'reload' %>
   <% end %>

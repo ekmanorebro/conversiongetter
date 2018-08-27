@@ -13,10 +13,10 @@
 
   <body>
     <% if flash[:notice] %>
-      <div class="notice"><%= flash[:notice] %></div>
+      <div class="notice"><%= flash[:notice] %><span class="close" style="margin-left: 5px; cursor: pointer;">[x]</span></div>
     <% end %>
     <% if flash[:success] %>
-      <div class="success"><%= flash[:success] %></div>
+      <div class="success"><%= flash[:success] %><span class="close" style="margin-left: 5px; cursor: pointer;">[x]</span></div>
     <% end %>
     <%= yield %>
   </body>
@@ -26,13 +26,20 @@
       <%= javascript_include_tag 'fixed-header', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'smooth-scroll', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'dynamic-form', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'close', 'data-turbolinks-track': 'reload' %>
     <% when 'smm', 'seo', 'ppc' %>
       <%= javascript_include_tag 'smooth-scroll-services', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'close', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'dynamic-form', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'close', 'data-turbolinks-track': 'reload' %>
     <% when 'privacy', 'terms', 'dream' %>
       <%= javascript_include_tag 'light-smooth-scroll', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'dynamic-form', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'close', 'data-turbolinks-track': 'reload' %>
     <% when 'mmc' %>
       <%= javascript_include_tag 'collapsediv', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'close', 'data-turbolinks-track': 'reload' %>
+    <% else %>
+      <%= javascript_include_tag 'close', 'data-turbolinks-track': 'reload' %>
   <% end %>
 </html>

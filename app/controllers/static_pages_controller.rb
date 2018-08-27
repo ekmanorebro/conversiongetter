@@ -39,8 +39,8 @@ class StaticPagesController < ApplicationController
   def create
     @contact = Contact.new(params.require(:contact).permit(:name, :budget, :website, :service, :email, :subject, :body))
     if @contact.save
-      redirect_to(root_path)
       flash[:success] = "Thank you. We'll get back to you asap!"
+      redirect_to(root_path)
     else
       flash[:notice] = "You didn't fill in all fields correctly. Please try again."
       redirect_back(fallback_location: root_path)
